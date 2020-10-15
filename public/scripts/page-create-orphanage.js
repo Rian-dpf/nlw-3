@@ -6,7 +6,7 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
 
 // Create icon
 const icon = L.icon({
-  iconUrl: "./public/images/map-marker.svg",
+  iconUrl: "/images/map-marker.svg",
   iconSize: [58, 68],
   iconAnchor: [29, 68],
 });
@@ -55,12 +55,12 @@ function addPhotoField() {
   container.appendChild(newFieldContainer);
 }
 
-function deleteField(event){
+function deleteField(event) {
   const span = event.currentTarget;
 
   const fieldsContainer = document.querySelectorAll(".new-upload");
 
-  if (fieldsContainer.length < 2){
+  if (fieldsContainer.length < 2) {
     // Limpar o valor do campo
     span.parentNode.children[0].value = "";
     return;
@@ -74,18 +74,17 @@ function deleteField(event){
 
 function toggleSelect(event) {
   // Retirar a classe .active dos botões
-  document.querySelectorAll('.button-select button').forEach((button) => {
-    button.classList.remove('active')
+  document.querySelectorAll(".button-select button").forEach((button) => {
+    button.classList.remove("active");
   });
 
   // Colocar a classe .active no botão clicado
-  const button = event.currentTarget
-  button.classList.add('active');
+  const button = event.currentTarget;
+  button.classList.add("active");
 
   // Atualizar o input hidden com o valor selecionado
-  const input = document.querySelector('[name="open_on_weekends"]')
+  const input = document.querySelector('[name="open_on_weekends"]');
 
   // Verifcar se é sim ou não
   input.value = button.dataset.value;
-
 }
